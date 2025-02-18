@@ -23,4 +23,28 @@ class ExersiseController extends Controller
 
         return view('exercise.show',['exercise'=>$exercise]);
     }
+    public function create ()
+    {
+        $exercise = new Exersise();
+        return view('exercise.create', compact('exercise'));
+    }
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name'=>'required',
+            'counts'=>'required'
+        ]);
+        $exercise = new Exersise();
+        $exercise->fill($data);
+        $exercise->save();
+        return redirect()->route('exercises.index');
+    }
+    public function edit($id)
+    {
+        $exercise = Exersise::findOrFail($id);
+        return view('exercise.edit',['exercise'=>$exercise]);
+    }
+    public function update(Request $request,$id){
+        
+    }
 }
