@@ -45,6 +45,21 @@ class ExersiseController extends Controller
         return view('exercise.edit',['exercise'=>$exercise]);
     }
     public function update(Request $request,$id){
-        
+        $exercise = Exersise::findOrFail($id);
+        $data = $request->validate([
+            'name'=>'required',
+            'counts'=>'required'
+        ]);
+        $exercise->fill($data);
+        $exercise->save();
+        return redirect()->route('exercises.index');
+    }
+
+    public function destroy($id){
+        $exercise = Exersise::find($id);
+        if($exercise){
+            $exercise->delete();
+        }
+        return redirect()->route('exercises.index');
     }
 }

@@ -26,15 +26,21 @@ Route::get('exercise/create', [ExersiseController::class, 'create'])
 Route::post('exercise/store', [ExersiseController::class, 'store'])
     ->name('exercise.store');
 
-Route::patch('exercise/{id}/update', [ExersiseController::class, 'update'])
-    ->name('exercise.update');
 
 Route::get('exercise/{id}', [ExersiseController::class, 'show'])
     ->name('exercise.show');
 
+Route::patch('exercise/{id}/update', [ExersiseController::class, 'update'])
+    ->name('exercise.update');
+
+
+
 
 Route::get('exercise/{id}/edit', [ExersiseController::class, 'edit'])
     ->name('exercise.edit');
+
+Route::delete('exercise/{id}', [ExersiseController::class, 'destroy'])
+    ->name('exercise.destroy');
 
     
 require __DIR__.'/auth.php';

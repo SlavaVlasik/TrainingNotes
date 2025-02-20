@@ -17,26 +17,6 @@
     @endforeach
     
     </div>
-    <style>
-        .container{
-           
-            width:80vw;
-            height:100px;
-            margin-left:auto;
-            margin-right:auto;
-        }
-       
-        h1{
-            color:white;
-            font-size:32px;
-        }
-        h3,a{
-            color:white;
-            font-size:26px;
-        }
-        form{
-            color:green;
-        }
-    </style>
+    
 @endsection
 
